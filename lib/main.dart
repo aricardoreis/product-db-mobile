@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () async {
+          String qrCodeResult = await FlutterBarcodeScanner.scanBarcode(
+              "#000080", "Cancel", false, ScanMode.QR);
+          debugPrint('>>> $qrCodeResult');
+        },
         tooltip: 'Add',
         child: const Icon(Icons.add),
       ),
