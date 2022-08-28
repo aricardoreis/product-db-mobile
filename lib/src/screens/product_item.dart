@@ -8,6 +8,9 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(product.name);
+    return ListTile(
+      title: Text(product.name),
+      subtitle: Text(product.value.toString()),
+    );
   }
 }
