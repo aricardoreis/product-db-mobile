@@ -3,6 +3,8 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:product_db_mobile/src/screens/product_list.dart';
 
+import 'src/providers/product_provider.dart';
+
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -37,6 +39,12 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () async => await _refresh(ref),
+          )
+        ],
       ),
       body: const Center(
         child: ProductList(),
@@ -51,5 +59,9 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  Future<void> _refresh(WidgetRef ref) async {
+    ref.refresh(productsProvider);
   }
 }
