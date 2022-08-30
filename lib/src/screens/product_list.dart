@@ -10,36 +10,30 @@ class ProductList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final products = ref.watch(productsProvider);
-    return products.when(
-      data: (data) => data.isNotEmpty
-          ? ListView.builder(
-              shrinkWrap: true,
-              padding: const EdgeInsets.only(top: 0.0),
-              itemCount: data.length,
-              itemBuilder: (context, index) => ProviderScope(
-                child: InkWell(
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ProductDetails(product: data[index]),
+    return Center(
+      child: products.when(
+        data: (data) => data.isNotEmpty
+            ? ListView.builder(
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 0.0),
+                itemCount: data.length,
+                itemBuilder: (context, index) => ProviderScope(
+                  child: InkWell(
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductDetails(product: data[index]),
+                      ),
+                    ),
+                    child: ProductItem(
+                      product: data[index],
                     ),
                   ),
-                  child: ProductItem(
-                    product: data[index],
-                  ),
                 ),
-              ),
-            )
-          : const Center(
-              child: Text('There is no data to show.'),
-            ),
-      loading: () => const Center(
-        child: CircularProgressIndicator(),
-      ),
-      error: (error, e) => Center(
-        child: Center(
-          child: Text(error.toString()),
-        ),
+              )
+            : const Text('There is no data to show.'),
+        loading: () => const CircularProgressIndicator(),
+        error: (error, e) => Text(error.toString()),
       ),
     );
   }

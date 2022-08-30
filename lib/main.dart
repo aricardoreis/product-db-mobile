@@ -43,6 +43,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () async => await _refresh(ref),
+            tooltip: 'Refresh products',
           )
         ],
       ),
