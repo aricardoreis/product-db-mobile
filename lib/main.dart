@@ -47,9 +47,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
           )
         ],
       ),
-      body: const Center(
-        child: ProductList(),
-      ),
+      body: const ProductList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           String qrCodeResult = await FlutterBarcodeScanner.scanBarcode(

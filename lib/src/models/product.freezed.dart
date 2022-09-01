@@ -21,10 +21,9 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Product {
   String get name => throw _privateConstructorUsedError;
-  int get code => throw _privateConstructorUsedError;
-  double get value => throw _privateConstructorUsedError;
+  String get code => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  List<PriceHistory> get priceHistory => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +34,8 @@ mixin _$Product {
 abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
       _$ProductCopyWithImpl<$Res>;
-  $Res call({String name, int code, double value, String type, DateTime date});
+  $Res call(
+      {String name, String code, String type, List<PriceHistory> priceHistory});
 }
 
 /// @nodoc
@@ -50,9 +50,8 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
   $Res call({
     Object? name = freezed,
     Object? code = freezed,
-    Object? value = freezed,
     Object? type = freezed,
-    Object? date = freezed,
+    Object? priceHistory = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -62,19 +61,15 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as int,
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      priceHistory: priceHistory == freezed
+          ? _value.priceHistory
+          : priceHistory // ignore: cast_nullable_to_non_nullable
+              as List<PriceHistory>,
     ));
   }
 }
@@ -85,7 +80,8 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
           _$_Product value, $Res Function(_$_Product) then) =
       __$$_ProductCopyWithImpl<$Res>;
   @override
-  $Res call({String name, int code, double value, String type, DateTime date});
+  $Res call(
+      {String name, String code, String type, List<PriceHistory> priceHistory});
 }
 
 /// @nodoc
@@ -101,9 +97,8 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? code = freezed,
-    Object? value = freezed,
     Object? type = freezed,
-    Object? date = freezed,
+    Object? priceHistory = freezed,
   }) {
     return _then(_$_Product(
       name: name == freezed
@@ -113,19 +108,15 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
       code: code == freezed
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
-              as int,
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      priceHistory: priceHistory == freezed
+          ? _value._priceHistory
+          : priceHistory // ignore: cast_nullable_to_non_nullable
+              as List<PriceHistory>,
     ));
   }
 }
@@ -136,9 +127,9 @@ class _$_Product implements _Product {
   _$_Product(
       {required this.name,
       required this.code,
-      required this.value,
       required this.type,
-      required this.date});
+      required final List<PriceHistory> priceHistory})
+      : _priceHistory = priceHistory;
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
       _$$_ProductFromJson(json);
@@ -146,17 +137,19 @@ class _$_Product implements _Product {
   @override
   final String name;
   @override
-  final int code;
-  @override
-  final double value;
+  final String code;
   @override
   final String type;
+  final List<PriceHistory> _priceHistory;
   @override
-  final DateTime date;
+  List<PriceHistory> get priceHistory {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_priceHistory);
+  }
 
   @override
   String toString() {
-    return 'Product(name: $name, code: $code, value: $value, type: $type, date: $date)';
+    return 'Product(name: $name, code: $code, type: $type, priceHistory: $priceHistory)';
   }
 
   @override
@@ -166,9 +159,9 @@ class _$_Product implements _Product {
             other is _$_Product &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.value, value) &&
             const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality()
+                .equals(other._priceHistory, _priceHistory));
   }
 
   @JsonKey(ignore: true)
@@ -177,9 +170,8 @@ class _$_Product implements _Product {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(value),
       const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(_priceHistory));
 
   @JsonKey(ignore: true)
   @override
@@ -197,23 +189,20 @@ class _$_Product implements _Product {
 abstract class _Product implements Product {
   factory _Product(
       {required final String name,
-      required final int code,
-      required final double value,
+      required final String code,
       required final String type,
-      required final DateTime date}) = _$_Product;
+      required final List<PriceHistory> priceHistory}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
   @override
   String get name;
   @override
-  int get code;
-  @override
-  double get value;
+  String get code;
   @override
   String get type;
   @override
-  DateTime get date;
+  List<PriceHistory> get priceHistory;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

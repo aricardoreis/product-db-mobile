@@ -10,7 +10,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(product.name),
-      subtitle: Text(product.value.toString()),
+      subtitle: Text(product.code),
     );
   }
 }

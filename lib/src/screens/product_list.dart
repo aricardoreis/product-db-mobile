@@ -10,7 +10,7 @@ class ProductList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final products = ref.watch(productsProvider);
-    return Center(
+    return Container(
       child: products.when(
         data: (data) => data.isNotEmpty
             ? ListView.builder(

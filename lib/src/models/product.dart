@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:product_db_mobile/src/models/price_history.dart';
 
 part 'product.freezed.dart';
 part 'product.g.dart';
@@ -7,10 +8,9 @@ part 'product.g.dart';
 class Product with _$Product {
   factory Product({
     required String name,
-    required int code,
-    required double value,
+    required String code,
     required String type,
-    required DateTime date,
+    required List<PriceHistory> priceHistory,
   }) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>
