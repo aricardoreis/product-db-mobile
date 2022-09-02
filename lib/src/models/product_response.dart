@@ -9,7 +9,7 @@ class ProductsResponse with _$ProductsResponse {
   const factory ProductsResponse({
     required bool success,
     required List<Product> result,
-  }) = _EProductsResponse;
+  }) = _ProductsResponse;
 
   factory ProductsResponse.fromJson(Map<String, dynamic> json) =>
       _$ProductsResponseFromJson(json);

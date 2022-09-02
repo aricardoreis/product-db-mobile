@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ProductsResponse _$ProductsResponseFromJson(Map<String, dynamic> json) {
-  return _EProductsResponse.fromJson(json);
+  return _ProductsResponse.fromJson(json);
 }
 
 /// @nodoc
@@ -65,32 +65,32 @@ class _$ProductsResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_EProductsResponseCopyWith<$Res>
+abstract class _$$_ProductsResponseCopyWith<$Res>
     implements $ProductsResponseCopyWith<$Res> {
-  factory _$$_EProductsResponseCopyWith(_$_EProductsResponse value,
-          $Res Function(_$_EProductsResponse) then) =
-      __$$_EProductsResponseCopyWithImpl<$Res>;
+  factory _$$_ProductsResponseCopyWith(
+          _$_ProductsResponse value, $Res Function(_$_ProductsResponse) then) =
+      __$$_ProductsResponseCopyWithImpl<$Res>;
   @override
   $Res call({bool success, List<Product> result});
 }
 
 /// @nodoc
-class __$$_EProductsResponseCopyWithImpl<$Res>
+class __$$_ProductsResponseCopyWithImpl<$Res>
     extends _$ProductsResponseCopyWithImpl<$Res>
-    implements _$$_EProductsResponseCopyWith<$Res> {
-  __$$_EProductsResponseCopyWithImpl(
-      _$_EProductsResponse _value, $Res Function(_$_EProductsResponse) _then)
-      : super(_value, (v) => _then(v as _$_EProductsResponse));
+    implements _$$_ProductsResponseCopyWith<$Res> {
+  __$$_ProductsResponseCopyWithImpl(
+      _$_ProductsResponse _value, $Res Function(_$_ProductsResponse) _then)
+      : super(_value, (v) => _then(v as _$_ProductsResponse));
 
   @override
-  _$_EProductsResponse get _value => super._value as _$_EProductsResponse;
+  _$_ProductsResponse get _value => super._value as _$_ProductsResponse;
 
   @override
   $Res call({
     Object? success = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_EProductsResponse(
+    return _then(_$_ProductsResponse(
       success: success == freezed
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -105,13 +105,13 @@ class __$$_EProductsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EProductsResponse implements _EProductsResponse {
-  const _$_EProductsResponse(
+class _$_ProductsResponse implements _ProductsResponse {
+  const _$_ProductsResponse(
       {required this.success, required final List<Product> result})
       : _result = result;
 
-  factory _$_EProductsResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_EProductsResponseFromJson(json);
+  factory _$_ProductsResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_ProductsResponseFromJson(json);
 
   @override
   final bool success;
@@ -131,7 +131,7 @@ class _$_EProductsResponse implements _EProductsResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EProductsResponse &&
+            other is _$_ProductsResponse &&
             const DeepCollectionEquality().equals(other.success, success) &&
             const DeepCollectionEquality().equals(other._result, _result));
   }
@@ -145,25 +145,24 @@ class _$_EProductsResponse implements _EProductsResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$$_EProductsResponseCopyWith<_$_EProductsResponse> get copyWith =>
-      __$$_EProductsResponseCopyWithImpl<_$_EProductsResponse>(
-          this, _$identity);
+  _$$_ProductsResponseCopyWith<_$_ProductsResponse> get copyWith =>
+      __$$_ProductsResponseCopyWithImpl<_$_ProductsResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EProductsResponseToJson(
+    return _$$_ProductsResponseToJson(
       this,
     );
   }
 }
 
-abstract class _EProductsResponse implements ProductsResponse {
-  const factory _EProductsResponse(
+abstract class _ProductsResponse implements ProductsResponse {
+  const factory _ProductsResponse(
       {required final bool success,
-      required final List<Product> result}) = _$_EProductsResponse;
+      required final List<Product> result}) = _$_ProductsResponse;
 
-  factory _EProductsResponse.fromJson(Map<String, dynamic> json) =
-      _$_EProductsResponse.fromJson;
+  factory _ProductsResponse.fromJson(Map<String, dynamic> json) =
+      _$_ProductsResponse.fromJson;
 
   @override
   bool get success;
@@ -171,6 +170,6 @@ abstract class _EProductsResponse implements ProductsResponse {
   List<Product> get result;
   @override
   @JsonKey(ignore: true)
-  _$$_EProductsResponseCopyWith<_$_EProductsResponse> get copyWith =>
+  _$$_ProductsResponseCopyWith<_$_ProductsResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

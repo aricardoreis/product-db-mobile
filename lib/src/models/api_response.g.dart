@@ -1,20 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product_response.dart';
+part of 'api_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProductsResponse _$$_ProductsResponseFromJson(Map<String, dynamic> json) =>
-    _$_ProductsResponse(
+_$_ApiResponse _$$_ApiResponseFromJson(Map<String, dynamic> json) =>
+    _$_ApiResponse(
       success: json['success'] as bool,
-      result: (json['result'] as List<dynamic>)
-          .map((e) => Product.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      result: json['result'] as String,
     );
 
-Map<String, dynamic> _$$_ProductsResponseToJson(_$_ProductsResponse instance) =>
+Map<String, dynamic> _$$_ApiResponseToJson(_$_ApiResponse instance) =>
     <String, dynamic>{
       'success': instance.success,
       'result': instance.result,
