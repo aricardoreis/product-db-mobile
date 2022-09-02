@@ -31,9 +31,9 @@ class ProductList extends ConsumerWidget {
                   ),
                 ),
               )
-            : const Text('There is no data to show.'),
+            : const Center(child: Text('There is no data to show.')),
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, e) => Text(error.toString()),
+        error: (error, e) => Center(child: Text(error.toString())),
       ),
     );
   }
