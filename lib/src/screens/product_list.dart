@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:product_db_mobile/src/screens/product_details.dart';
-import 'package:product_db_mobile/src/screens/product_item.dart';
+import 'product_details.dart';
+import 'product_item.dart';
 import '../providers/product_provider.dart';
 
 class ProductList extends ConsumerWidget {

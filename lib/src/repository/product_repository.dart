@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:product_db_mobile/src/models/product_response.dart';
+import '../models/product_response.dart';
 import '../models/product.dart';
 import 'api.dart';
 

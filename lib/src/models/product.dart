@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:product_db_mobile/src/models/price_history.dart';
+import 'price_history.dart';
 
 part 'product.freezed.dart';
 part 'product.g.dart';

@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:product_db_mobile/src/models/product.dart';
+import 'product.dart';
 
 part 'product_response.freezed.dart';
 part 'product_response.g.dart';
