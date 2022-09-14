@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:product_db_mobile/src/repository/api.dart';
-import 'package:product_db_mobile/src/screens/product_list.dart';
+import 'src/repository/api.dart';
+import 'src/screens/product_list.dart';
 
 import 'src/providers/product_provider.dart';
 
@@ -52,7 +52,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           String url = await FlutterBarcodeScanner.scanBarcode(
-              "#000080", "Cancel", false, ScanMode.QR);
+              '#000080', 'Cancel', false, ScanMode.QR);
 
           final api = ref.watch(apiRepository);
           api.loadInvoice(url).then(
