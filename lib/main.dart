@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'src/repository/api.dart';
 import 'src/screens/product_list.dart';
 
 import 'src/providers/product_provider.dart';
@@ -54,18 +53,9 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
           String url = await FlutterBarcodeScanner.scanBarcode(
               '#000080', 'Cancel', false, ScanMode.QR);
 
-          final api = ref.watch(apiRepository);
-          api.loadInvoice(url).then(
-            (data) {
-              if (data.success) {
-                ref.refresh(productsProvider);
-              }
-
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(data.result),
-              ));
-            },
-          );
+          if (url.startsWith('http')) {
+            ref.watch(productProvider.notifier).addProducts(url);
+          }
         },
         tooltip: 'Add',
         child: const Icon(Icons.add),
@@ -74,6 +64,6 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
   }
 
   Future<void> _refresh(WidgetRef ref) async {
-    ref.refresh(productsProvider);
+    ref.refresh(productProvider.notifier).loadProducts();
   }
 }

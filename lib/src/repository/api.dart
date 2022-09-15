@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/api_response.dart';
 import '../constants/utils.dart';
+import '../models/product_response.dart';
 
 final apiProvider = Provider(
   (ref) => Dio(
@@ -30,6 +31,11 @@ class ApiRepository {
       },
       options: Options(contentType: 'application/json; charset=utf-8'),
     );
-    return ApiResponse.fromJson(result.data);
+
+    if (result.statusCode == 200) {
+      return ProductsResponse.fromJson(result.data) as ApiResponse;
+    } else {
+      return ApiResponse.fromJson(result.data);
+    }
   }
 }

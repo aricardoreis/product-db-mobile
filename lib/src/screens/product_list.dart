@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../models/product.dart';
 import 'product_details.dart';
 import 'product_item.dart';
 import '../providers/product_provider.dart';
@@ -9,32 +10,34 @@ class ProductList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final products = ref.watch(productsProvider);
-    return Container(
-      child: products.when(
-        data: (data) => data.isNotEmpty
-            ? ListView.builder(
+    List<Product> products = ref.watch(productProvider).products;
+    bool isLoading = ref.watch(productProvider).isLoading;
+
+    return SafeArea(
+      child: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : Container(
+              color: Colors.white,
+              child: ListView.builder(
                 shrinkWrap: true,
-                padding: const EdgeInsets.only(top: 0.0),
-                itemCount: data.length,
-                itemBuilder: (context, index) => ProviderScope(
-                  child: InkWell(
+                itemCount: products.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Product product = products[index];
+                  return InkWell(
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>
-                            ProductDetails(product: data[index]),
+                        builder: (context) => ProductDetails(
+                          product: product,
+                        ),
                       ),
                     ),
                     child: ProductItem(
-                      product: data[index],
+                      product: product,
                     ),
-                  ),
-                ),
-              )
-            : const Center(child: Text('There is no data to show.')),
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, e) => Center(child: Text(error.toString())),
-      ),
+                  );
+                },
+              ),
+            ),
     );
   }
 }

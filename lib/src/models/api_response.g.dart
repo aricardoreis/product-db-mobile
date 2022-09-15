@@ -9,7 +9,7 @@ part of 'api_response.dart';
 _$_ApiResponse _$$_ApiResponseFromJson(Map<String, dynamic> json) =>
     _$_ApiResponse(
       success: json['success'] as bool,
-      result: json['result'] as String,
+      result: json['result'],
     );
 
 Map<String, dynamic> _$$_ApiResponseToJson(_$_ApiResponse instance) =>

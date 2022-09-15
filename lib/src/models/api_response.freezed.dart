@@ -21,7 +21,7 @@ ApiResponse _$ApiResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ApiResponse {
   bool get success => throw _privateConstructorUsedError;
-  String get result => throw _privateConstructorUsedError;
+  dynamic get result => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $ApiResponseCopyWith<$Res> {
   factory $ApiResponseCopyWith(
           ApiResponse value, $Res Function(ApiResponse) then) =
       _$ApiResponseCopyWithImpl<$Res>;
-  $Res call({bool success, String result});
+  $Res call({bool success, dynamic result});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$ApiResponseCopyWithImpl<$Res> implements $ApiResponseCopyWith<$Res> {
       result: result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
     ));
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$_ApiResponseCopyWith<$Res>
           _$_ApiResponse value, $Res Function(_$_ApiResponse) then) =
       __$$_ApiResponseCopyWithImpl<$Res>;
   @override
-  $Res call({bool success, String result});
+  $Res call({bool success, dynamic result});
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class __$$_ApiResponseCopyWithImpl<$Res> extends _$ApiResponseCopyWithImpl<$Res>
       result: result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
     ));
   }
 }
@@ -112,7 +112,7 @@ class _$_ApiResponse implements _ApiResponse {
   @override
   final bool success;
   @override
-  final String result;
+  final dynamic result;
 
   @override
   String toString() {
@@ -151,7 +151,7 @@ class _$_ApiResponse implements _ApiResponse {
 abstract class _ApiResponse implements ApiResponse {
   const factory _ApiResponse(
       {required final bool success,
-      required final String result}) = _$_ApiResponse;
+      required final dynamic result}) = _$_ApiResponse;
 
   factory _ApiResponse.fromJson(Map<String, dynamic> json) =
       _$_ApiResponse.fromJson;
@@ -159,7 +159,7 @@ abstract class _ApiResponse implements ApiResponse {
   @override
   bool get success;
   @override
-  String get result;
+  dynamic get result;
   @override
   @JsonKey(ignore: true)
   _$$_ApiResponseCopyWith<_$_ApiResponse> get copyWith =>

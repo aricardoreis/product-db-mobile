@@ -7,7 +7,7 @@ part 'api_response.g.dart';
 class ApiResponse with _$ApiResponse {
   const factory ApiResponse({
     required bool success,
-    required String result,
+    required dynamic result,
   }) = _ApiResponse;
 
   factory ApiResponse.fromJson(Map<String, dynamic> json) =>
