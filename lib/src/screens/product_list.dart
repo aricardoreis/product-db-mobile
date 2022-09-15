@@ -20,7 +20,7 @@ class ProductList extends ConsumerWidget {
       child: isLoading
           ? Center(
               child: Lottie.asset(
-                'assets/loading-gears.json',
+                'assets/loading.json',
                 width: screenWidth / 2,
               ),
             )
