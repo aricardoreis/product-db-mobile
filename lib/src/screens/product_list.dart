@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lottie/lottie.dart';
 import '../models/product.dart';
 import 'product_details.dart';
 import 'product_item.dart';
@@ -10,12 +11,19 @@ class ProductList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    var screenWidth = MediaQuery.of(context).size.width;
+
     List<Product> products = ref.watch(productProvider).products;
     bool isLoading = ref.watch(productProvider).isLoading;
 
     return SafeArea(
       child: isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(
+              child: Lottie.asset(
+                'assets/loading-gears.json',
+                width: screenWidth / 2,
+              ),
+            )
           : Container(
               color: Colors.white,
               child: ListView.builder(
