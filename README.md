@@ -4,4 +4,4 @@ A mobile client for the Product database (which will keep price history per prod
 
 # Generate models
 
-dart run build_runner build
+flutter pub run build_runner build --delete-conflicting-outputs

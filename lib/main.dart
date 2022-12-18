@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'src/screens/product_list.dart';
-
-import 'src/providers/product_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'injection.dart';
+import 'src/screens/home.dart';
+import 'src/blocs/home/home_cubit.dart';
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  configureDependencies();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,51 +19,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const MyHomePage(title: 'Product DB'),
-    );
-  }
-}
-
-class MyHomePage extends ConsumerStatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  ConsumerState<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends ConsumerState<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () async => await _refresh(ref),
-            tooltip: 'Refresh products',
-          )
-        ],
-      ),
-      body: const ProductList(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          String url = await FlutterBarcodeScanner.scanBarcode(
-              '#000080', 'Cancel', false, ScanMode.QR);
-
-          if (url.startsWith('http')) {
-            ref.watch(productProvider.notifier).addProducts(url);
-          }
-        },
-        tooltip: 'Add',
-        child: const Icon(Icons.add),
+      home: BlocProvider<HomeCubit>(
+        create: (context) => locator.get<HomeCubit>(),
+        child: const HomePage(title: 'Product DB'),
       ),
     );
-  }
-
-  Future<void> _refresh(WidgetRef ref) async {
-    ref.refresh(productProvider.notifier).loadProducts();
   }
 }
