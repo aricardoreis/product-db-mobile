@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/product.dart';
+import '../utils/format.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
@@ -11,6 +12,7 @@ class ProductItem extends StatelessWidget {
     return ListTile(
       title: Text(product.name),
       subtitle: Text(product.code),
+      trailing: Text(formatAsCurrency(product.priceHistory.last.value)),
     );
   }
 }

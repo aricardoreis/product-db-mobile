@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import '../models/product.dart';
+import '../utils/format.dart';
 
 class ProductDetails extends StatelessWidget {
   final Product product;
@@ -46,8 +46,7 @@ class DateText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-        '${_date.day.toString().padLeft(2, '0')}/${_date.month.toString().padLeft(2, '0')}/${_date.year}');
+    return Text(dateToString(_date));
   }
 }
 
@@ -57,8 +56,6 @@ class PriceHistory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currencyFormat = NumberFormat('#,##0.00', 'pt-BR');
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -74,7 +71,7 @@ class PriceHistory extends StatelessWidget {
             children: [
               DateText(e.date),
               Text(
-                'R\$ ${currencyFormat.format(e.value)}',
+                formatAsCurrency(e.value),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
