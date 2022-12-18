@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'src/blocs/home/home_cubit.dart';
 import 'src/screens/product_list.dart';
 
 void main() {
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const MyHomePage(title: 'Product DB'),
+      home: BlocProvider<HomeCubit>(
+        create: (context) => HomeCubit(),
+        child: const MyHomePage(title: 'Product DB'),
+      ),
     );
   }
 }
@@ -60,5 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Future<void> _refresh() async {}
+  Future<void> _refresh() async {
+    context.read<HomeCubit>().refresh();
+  }
 }
