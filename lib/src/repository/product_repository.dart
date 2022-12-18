@@ -1,11 +1,6 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/product_response.dart';
 import '../models/product.dart';
 import 'api.dart';
-
-final productRepository = Provider<ProductRepository>(
-  (ref) => ProductRepositoryApi(ref.read),
-);
 
 abstract class ProductRepository {
   Future<List<Product>> getProducts();
@@ -14,12 +9,11 @@ abstract class ProductRepository {
 class ProductRepositoryApi implements ProductRepository {
   final path = '/products';
 
-  final Reader read;
-  ProductRepositoryApi(this.read);
+  ProductRepositoryApi();
 
   @override
   Future<List<Product>> getProducts() async {
-    var result = await read(apiProvider).get(path);
+    var result = await httpClient.get(path);
     return ProductsResponse.fromJson(result.data).result;
   }
 }

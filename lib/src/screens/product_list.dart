@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import '../models/product.dart';
 import 'product_details.dart';
 import 'product_item.dart';
-import '../providers/product_provider.dart';
 
-class ProductList extends ConsumerWidget {
+class ProductList extends StatefulWidget {
   const ProductList({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ref) {
+  State<StatefulWidget> createState() => _ProductListState();
+}
+
+class _ProductListState extends State<ProductList> {
+  @override
+  Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
 
-    List<Product> products = ref.watch(productProvider).products;
-    bool isLoading = ref.watch(productProvider).isLoading;
+    List<Product> products = [];
+    bool isLoading = false;
 
     return SafeArea(
       child: isLoading

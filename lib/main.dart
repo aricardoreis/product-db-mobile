@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'src/screens/product_list.dart';
 
-import 'src/providers/product_provider.dart';
-
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,16 +21,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends ConsumerStatefulWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  ConsumerState<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends ConsumerState<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +39,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: () async => await _refresh(ref),
+            onPressed: () async => await _refresh(),
             tooltip: 'Refresh products',
           )
         ],
@@ -54,7 +51,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
               '#000080', 'Cancel', false, ScanMode.QR);
 
           if (url.startsWith('http')) {
-            ref.watch(productProvider.notifier).addProducts(url);
+            // add products using invoid url
           }
         },
         tooltip: 'Add',
@@ -63,7 +60,5 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
     );
   }
 
-  Future<void> _refresh(WidgetRef ref) async {
-    ref.refresh(productProvider.notifier).loadProducts();
-  }
+  Future<void> _refresh() async {}
 }
