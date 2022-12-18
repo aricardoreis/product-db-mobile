@@ -1,15 +1,18 @@
+import 'package:injectable/injectable.dart';
+
 import '../models/product_response.dart';
 import '../models/product.dart';
-import 'api.dart';
+import '../utils/network.dart';
 
-abstract class ProductRepository {
+abstract class ProductService {
   Future<List<Product>> getProducts();
 }
 
-class ProductRepositoryApi implements ProductRepository {
+@Injectable(as: ProductService)
+class ProductServiceImpl implements ProductService {
   final path = '/products';
 
-  ProductRepositoryApi();
+  ProductServiceImpl();
 
   @override
   Future<List<Product>> getProducts() async {
