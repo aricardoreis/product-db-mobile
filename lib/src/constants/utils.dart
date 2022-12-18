@@ -1,1 +1,1 @@
-const String apiUrl = 'https://product-db-app.herokuapp.com';
+const String apiUrl = 'http://aricardoreis.ddns.net:8000';
