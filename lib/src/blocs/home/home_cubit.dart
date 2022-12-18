@@ -9,7 +9,7 @@ import '../../services/product_service.dart';
 part 'home_state.dart';
 part 'home_cubit.freezed.dart';
 
-@singleton
+@lazySingleton
 class HomeCubit extends Cubit<HomeState> {
   final ProductService _productService;
   final ApiService _apiService;

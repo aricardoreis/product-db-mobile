@@ -20,8 +20,8 @@ extension GetItInjectableX on _i1.GetIt {
     final gh = _i2.GetItHelper(this, environment, environmentFilter);
     gh.factory<_i3.ApiService>(() => _i3.ApiServiceImpl());
     gh.factory<_i4.ProductService>(() => _i4.ProductServiceImpl());
-    gh.singleton<_i5.HomeCubit>(
-        _i5.HomeCubit(gh<_i4.ProductService>(), gh<_i3.ApiService>()));
+    gh.lazySingleton<_i5.HomeCubit>(
+        () => _i5.HomeCubit(gh<_i4.ProductService>(), gh<_i3.ApiService>()));
     return this;
   }
 }
