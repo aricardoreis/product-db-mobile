@@ -20,15 +20,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () async => await _refresh(),
-            tooltip: 'Refresh products',
-          )
-        ],
       ),
-      body: const ProductList(),
+      body: RefreshIndicator(
+        onRefresh: _refresh,
+        child: const ProductList(),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           String url = await FlutterBarcodeScanner.scanBarcode(
@@ -47,6 +43,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _refresh() async {
-    context.read<HomeCubit>().refresh();
+    context.read<HomeCubit>().load();
   }
 }

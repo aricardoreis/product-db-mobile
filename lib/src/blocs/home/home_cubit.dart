@@ -18,10 +18,10 @@ class HomeCubit extends Cubit<HomeState> {
     this._productService,
     this._apiService,
   ) : super(const HomeState.initial()) {
-    refresh();
+    load();
   }
 
-  void refresh() async {
+  void load() async {
     try {
       emit(const HomeState.loading());
       var products = await _productService.getProducts();
@@ -36,7 +36,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(const HomeState.loading());
       var result = await _apiService.loadInvoice(url);
       if (result.success) {
-        refresh();
+        load();
       } else {
         emit(const HomeState.error('Failed to load invoice'));
       }
