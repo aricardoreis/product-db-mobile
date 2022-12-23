@@ -21,10 +21,6 @@ class ApiServiceImpl implements ApiService {
       options: Options(contentType: 'application/json; charset=utf-8'),
     );
 
-    if (result.statusCode == 200) {
-      return ApiResponse.fromJson(result.data);
-    }
-
-    throw Exception('Error when loading invoice.');
+    return ApiResponse.fromJson(result.data);
   }
 }

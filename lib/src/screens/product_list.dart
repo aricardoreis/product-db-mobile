@@ -15,13 +15,8 @@ class ProductList extends StatelessWidget {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         state.maybeWhen(
-          error: (message) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(message),
-              ),
-            );
-          },
+          error: (message) => _showSnackBar(context, message),
+          success: (_, message) => _showSnackBar(context, message),
           orElse: () {},
         );
       },
@@ -34,7 +29,7 @@ class ProductList extends StatelessWidget {
                       width: screenWidth / 2,
                     ),
                   ),
-              success: (products) => Container(
+              success: (products, _) => Container(
                     color: Colors.white,
                     child: ListView.builder(
                       shrinkWrap: true,
@@ -59,6 +54,15 @@ class ProductList extends StatelessWidget {
               orElse: () => const Center()),
         );
       },
+    );
+  }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> _showSnackBar(
+      BuildContext context, String message) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
     );
   }
 }

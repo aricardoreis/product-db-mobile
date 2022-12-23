@@ -21,11 +21,11 @@ class HomeCubit extends Cubit<HomeState> {
     load();
   }
 
-  void load() async {
+  void load({String? message}) async {
     try {
       emit(const HomeState.loading());
       var products = await _productService.getProducts();
-      emit(HomeState.success(products));
+      emit(HomeState.success(products, message ?? 'The products were loaded!'));
     } catch (e) {
       emit(const HomeState.error('Error when getting products'));
     }
@@ -34,14 +34,11 @@ class HomeCubit extends Cubit<HomeState> {
   void loadInvoice(String url) async {
     try {
       emit(const HomeState.loading());
-      var result = await _apiService.loadInvoice(url);
-      if (result.success) {
-        load();
-      } else {
-        emit(const HomeState.error('Failed to load invoice'));
-      }
+      var response = await _apiService.loadInvoice(url);
+      load(message: response.result);
     } catch (e) {
-      emit(const HomeState.error('Error when loading products'));
+      emit(const HomeState.error('Error when loading invoice'));
+      load();
     }
   }
 }
