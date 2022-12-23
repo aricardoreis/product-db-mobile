@@ -14,6 +14,8 @@ class HomeCubit extends Cubit<HomeState> {
   final ProductService _productService;
   final ApiService _apiService;
 
+  late List<Product> _loadedProducts;
+
   HomeCubit(
     this._productService,
     this._apiService,
@@ -21,21 +23,35 @@ class HomeCubit extends Cubit<HomeState> {
     load();
   }
 
-  void load({String? message}) async {
+  void load() async {
     try {
       emit(const HomeState.loading());
-      var products = await _productService.getProducts();
-      emit(HomeState.success(products, message ?? 'The products were loaded!'));
+      _loadedProducts = await _productService.getProducts();
+      emit(HomeState.success(_loadedProducts));
     } catch (e) {
       emit(const HomeState.error('Error when getting products'));
     }
+  }
+
+  void filter(String name) {
+    if (name.isEmpty) return;
+
+    var filteredProducts = _loadedProducts
+        .where((product) =>
+            product.name.toLowerCase().contains(name.toLowerCase()))
+        .toList();
+    emit(HomeState.success(filteredProducts));
   }
 
   void loadInvoice(String url) async {
     try {
       emit(const HomeState.loading());
       var response = await _apiService.loadInvoice(url);
-      load(message: response.result);
+      if (response.success) {
+        load();
+      } else {
+        emit(HomeState.success(_loadedProducts));
+      }
     } catch (e) {
       emit(const HomeState.error('Error when loading invoice'));
       load();

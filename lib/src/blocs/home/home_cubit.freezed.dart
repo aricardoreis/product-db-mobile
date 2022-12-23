@@ -21,7 +21,7 @@ mixin _$HomeState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Product> result, String message) success,
+    required TResult Function(List<Product> result) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$HomeState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$HomeState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,7 +125,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Product> result, String message) success,
+    required TResult Function(List<Product> result) success,
   }) {
     return initial();
   }
@@ -136,7 +136,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
   }) {
     return initial?.call();
   }
@@ -147,7 +147,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -240,7 +240,7 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Product> result, String message) success,
+    required TResult Function(List<Product> result) success,
   }) {
     return loading();
   }
@@ -251,7 +251,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
   }) {
     return loading?.call();
   }
@@ -262,7 +262,7 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -378,7 +378,7 @@ class _$_Error implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Product> result, String message) success,
+    required TResult Function(List<Product> result) success,
   }) {
     return error(message);
   }
@@ -389,7 +389,7 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
   }) {
     return error?.call(message);
   }
@@ -400,7 +400,7 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -461,7 +461,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
-  $Res call({List<Product> result, String message});
+  $Res call({List<Product> result});
 }
 
 /// @nodoc
@@ -476,17 +476,12 @@ class __$$_SuccessCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? result = freezed,
-    Object? message = freezed,
   }) {
     return _then(_$_Success(
       result == freezed
           ? _value._result
           : result // ignore: cast_nullable_to_non_nullable
               as List<Product>,
-      message == freezed
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -494,7 +489,7 @@ class __$$_SuccessCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(final List<Product> result, this.message) : _result = result;
+  const _$_Success(final List<Product> result) : _result = result;
 
   final List<Product> _result;
   @override
@@ -504,11 +499,8 @@ class _$_Success implements _Success {
   }
 
   @override
-  final String message;
-
-  @override
   String toString() {
-    return 'HomeState.success(result: $result, message: $message)';
+    return 'HomeState.success(result: $result)';
   }
 
   @override
@@ -516,15 +508,12 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            const DeepCollectionEquality().equals(other._result, _result) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            const DeepCollectionEquality().equals(other._result, _result));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_result),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_result));
 
   @JsonKey(ignore: true)
   @override
@@ -537,9 +526,9 @@ class _$_Success implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(List<Product> result, String message) success,
+    required TResult Function(List<Product> result) success,
   }) {
-    return success(result, message);
+    return success(result);
   }
 
   @override
@@ -548,9 +537,9 @@ class _$_Success implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
   }) {
-    return success?.call(result, message);
+    return success?.call(result);
   }
 
   @override
@@ -559,11 +548,11 @@ class _$_Success implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(List<Product> result, String message)? success,
+    TResult Function(List<Product> result)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(result, message);
+      return success(result);
     }
     return orElse();
   }
@@ -607,11 +596,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements HomeState {
-  const factory _Success(final List<Product> result, final String message) =
-      _$_Success;
+  const factory _Success(final List<Product> result) = _$_Success;
 
   List<Product> get result;
-  String get message;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;

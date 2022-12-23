@@ -1,3 +1,4 @@
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,11 +16,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TextEditingController _textController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _textController.addListener(() {
+      final String text = _textController.text;
+      _filter(text);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(widget.title),
+        actions: [
+          AnimSearchBar(
+            width: screenWidth * 0.6,
+            rtl: true,
+            autoFocus: true,
+            textController: _textController,
+            searchIconColor: Colors.purple,
+            textFieldIconColor: Colors.purple,
+            suffixIcon: const Icon(
+              Icons.abc,
+              color: Colors.white,
+              size: 0,
+            ),
+            onSuffixTap: () {},
+            onSubmitted: (_) {},
+          )
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: _refresh,
@@ -44,5 +76,9 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _refresh() async {
     context.read<HomeCubit>().load();
+  }
+
+  Future<void> _filter(String name) async {
+    context.read<HomeCubit>().filter(name);
   }
 }

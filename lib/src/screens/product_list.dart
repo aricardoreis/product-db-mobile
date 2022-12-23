@@ -16,7 +16,6 @@ class ProductList extends StatelessWidget {
       listener: (context, state) {
         state.maybeWhen(
           error: (message) => _showSnackBar(context, message),
-          success: (_, message) => _showSnackBar(context, message),
           orElse: () {},
         );
       },
@@ -29,7 +28,7 @@ class ProductList extends StatelessWidget {
                       width: screenWidth / 2,
                     ),
                   ),
-              success: (products, _) => Container(
+              success: (products) => Container(
                     color: Colors.white,
                     child: ListView.builder(
                       shrinkWrap: true,
