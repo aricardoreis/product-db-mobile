@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
 import '../utils/format.dart';
+import '../widgets/date_text.dart';
 
 class ProductDetails extends StatelessWidget {
   final Product product;
@@ -34,19 +35,6 @@ class ProductDetails extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class DateText extends StatelessWidget {
-  final DateTime _date;
-  const DateText(
-    this._date, {
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(dateToString(_date));
   }
 }
 
