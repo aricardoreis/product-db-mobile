@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rolim.product_db_mobile">
    <application
-        android:label="product_db_mobile"
+        android:label="Product DB"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
