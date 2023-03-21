@@ -6,4 +6,5 @@ class HomeState with _$HomeState {
   const factory HomeState.loading() = _Loading;
   const factory HomeState.error(String message) = _Error;
   const factory HomeState.success(List<Product> result) = _Success;
+  const factory HomeState.invoiceLoaded(String id) = _InvoiceLoaded;
 }

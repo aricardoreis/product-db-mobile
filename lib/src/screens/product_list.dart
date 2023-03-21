@@ -5,6 +5,7 @@ import '../models/product.dart';
 import '../widgets/loading.dart';
 import 'product_details.dart';
 import 'product_item.dart';
+import 'sale_details.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({Key? key}) : super(key: key);
@@ -15,6 +16,13 @@ class ProductList extends StatelessWidget {
       listener: (context, state) {
         state.maybeWhen(
           error: (message) => _showSnackBar(context, message),
+          invoiceLoaded: (saleId) => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SaleDetails(
+                saleId: saleId,
+              ),
+            ),
+          ),
           orElse: () {},
         );
       },

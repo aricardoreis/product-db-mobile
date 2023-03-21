@@ -22,6 +22,7 @@ mixin _$HomeState {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(List<Product> result) success,
+    required TResult Function(String id) invoiceLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$HomeState {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$HomeState {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$HomeState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_InvoiceLoaded value) invoiceLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$HomeState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$HomeState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,6 +132,7 @@ class _$_Initial implements _Initial {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(List<Product> result) success,
+    required TResult Function(String id) invoiceLoaded,
   }) {
     return initial();
   }
@@ -137,6 +144,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
   }) {
     return initial?.call();
   }
@@ -148,6 +156,7 @@ class _$_Initial implements _Initial {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -163,6 +172,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_InvoiceLoaded value) invoiceLoaded,
   }) {
     return initial(this);
   }
@@ -174,6 +184,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
   }) {
     return initial?.call(this);
   }
@@ -185,6 +196,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -241,6 +253,7 @@ class _$_Loading implements _Loading {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(List<Product> result) success,
+    required TResult Function(String id) invoiceLoaded,
   }) {
     return loading();
   }
@@ -252,6 +265,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
   }) {
     return loading?.call();
   }
@@ -263,6 +277,7 @@ class _$_Loading implements _Loading {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -278,6 +293,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_InvoiceLoaded value) invoiceLoaded,
   }) {
     return loading(this);
   }
@@ -289,6 +305,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
   }) {
     return loading?.call(this);
   }
@@ -300,6 +317,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -379,6 +397,7 @@ class _$_Error implements _Error {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(List<Product> result) success,
+    required TResult Function(String id) invoiceLoaded,
   }) {
     return error(message);
   }
@@ -390,6 +409,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
   }) {
     return error?.call(message);
   }
@@ -401,6 +421,7 @@ class _$_Error implements _Error {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -416,6 +437,7 @@ class _$_Error implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_InvoiceLoaded value) invoiceLoaded,
   }) {
     return error(this);
   }
@@ -427,6 +449,7 @@ class _$_Error implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
   }) {
     return error?.call(this);
   }
@@ -438,6 +461,7 @@ class _$_Error implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -527,6 +551,7 @@ class _$_Success implements _Success {
     required TResult Function() loading,
     required TResult Function(String message) error,
     required TResult Function(List<Product> result) success,
+    required TResult Function(String id) invoiceLoaded,
   }) {
     return success(result);
   }
@@ -538,6 +563,7 @@ class _$_Success implements _Success {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
   }) {
     return success?.call(result);
   }
@@ -549,6 +575,7 @@ class _$_Success implements _Success {
     TResult Function()? loading,
     TResult Function(String message)? error,
     TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -564,6 +591,7 @@ class _$_Success implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_InvoiceLoaded value) invoiceLoaded,
   }) {
     return success(this);
   }
@@ -575,6 +603,7 @@ class _$_Success implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
   }) {
     return success?.call(this);
   }
@@ -586,6 +615,7 @@ class _$_Success implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -601,5 +631,156 @@ abstract class _Success implements HomeState {
   List<Product> get result;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_InvoiceLoadedCopyWith<$Res> {
+  factory _$$_InvoiceLoadedCopyWith(
+          _$_InvoiceLoaded value, $Res Function(_$_InvoiceLoaded) then) =
+      __$$_InvoiceLoadedCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_InvoiceLoadedCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+    implements _$$_InvoiceLoadedCopyWith<$Res> {
+  __$$_InvoiceLoadedCopyWithImpl(
+      _$_InvoiceLoaded _value, $Res Function(_$_InvoiceLoaded) _then)
+      : super(_value, (v) => _then(v as _$_InvoiceLoaded));
+
+  @override
+  _$_InvoiceLoaded get _value => super._value as _$_InvoiceLoaded;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_$_InvoiceLoaded(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InvoiceLoaded implements _InvoiceLoaded {
+  const _$_InvoiceLoaded(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'HomeState.invoiceLoaded(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_InvoiceLoaded &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_InvoiceLoadedCopyWith<_$_InvoiceLoaded> get copyWith =>
+      __$$_InvoiceLoadedCopyWithImpl<_$_InvoiceLoaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function(List<Product> result) success,
+    required TResult Function(String id) invoiceLoaded,
+  }) {
+    return invoiceLoaded(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
+  }) {
+    return invoiceLoaded?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function(List<Product> result)? success,
+    TResult Function(String id)? invoiceLoaded,
+    required TResult orElse(),
+  }) {
+    if (invoiceLoaded != null) {
+      return invoiceLoaded(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_InvoiceLoaded value) invoiceLoaded,
+  }) {
+    return invoiceLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
+  }) {
+    return invoiceLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_InvoiceLoaded value)? invoiceLoaded,
+    required TResult orElse(),
+  }) {
+    if (invoiceLoaded != null) {
+      return invoiceLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvoiceLoaded implements HomeState {
+  const factory _InvoiceLoaded(final String id) = _$_InvoiceLoaded;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_InvoiceLoadedCopyWith<_$_InvoiceLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }

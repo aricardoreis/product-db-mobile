@@ -9,6 +9,7 @@ import '../../services/product_service.dart';
 part 'home_state.dart';
 part 'home_cubit.freezed.dart';
 
+// TODO: HomeCubit is a mess with a mix of loading products and invoice
 @lazySingleton
 class HomeCubit extends Cubit<HomeState> {
   final ProductService _productService;
@@ -48,13 +49,15 @@ class HomeCubit extends Cubit<HomeState> {
       emit(const HomeState.loading());
       var response = await _apiService.loadInvoice(url);
       if (response.success) {
+        String saleId = response.result;
+        emit(HomeState.invoiceLoaded(saleId));
         load();
       } else {
-        emit(HomeState.success(_loadedProducts));
+        throw Exception(response.result);
       }
     } catch (e) {
-      emit(const HomeState.error('Error when loading invoice'));
-      load();
+      emit(HomeState.error('Error when loading invoice $e'));
+      emit(HomeState.success(_loadedProducts));
     }
   }
 }
