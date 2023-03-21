@@ -23,6 +23,7 @@ mixin _$Product {
   String get name => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
   List<PriceHistory> get priceHistory => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,11 @@ abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
       _$ProductCopyWithImpl<$Res>;
   $Res call(
-      {String name, String code, String type, List<PriceHistory> priceHistory});
+      {String name,
+      String code,
+      String type,
+      double amount,
+      List<PriceHistory> priceHistory});
 }
 
 /// @nodoc
@@ -51,6 +56,7 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? name = freezed,
     Object? code = freezed,
     Object? type = freezed,
+    Object? amount = freezed,
     Object? priceHistory = freezed,
   }) {
     return _then(_value.copyWith(
@@ -66,6 +72,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
       priceHistory: priceHistory == freezed
           ? _value.priceHistory
           : priceHistory // ignore: cast_nullable_to_non_nullable
@@ -81,7 +91,11 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       __$$_ProductCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name, String code, String type, List<PriceHistory> priceHistory});
+      {String name,
+      String code,
+      String type,
+      double amount,
+      List<PriceHistory> priceHistory});
 }
 
 /// @nodoc
@@ -98,6 +112,7 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? name = freezed,
     Object? code = freezed,
     Object? type = freezed,
+    Object? amount = freezed,
     Object? priceHistory = freezed,
   }) {
     return _then(_$_Product(
@@ -113,6 +128,10 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
       priceHistory: priceHistory == freezed
           ? _value._priceHistory
           : priceHistory // ignore: cast_nullable_to_non_nullable
@@ -128,6 +147,7 @@ class _$_Product implements _Product {
       {required this.name,
       required this.code,
       required this.type,
+      required this.amount,
       required final List<PriceHistory> priceHistory})
       : _priceHistory = priceHistory;
 
@@ -140,6 +160,8 @@ class _$_Product implements _Product {
   final String code;
   @override
   final String type;
+  @override
+  final double amount;
   final List<PriceHistory> _priceHistory;
   @override
   List<PriceHistory> get priceHistory {
@@ -149,7 +171,7 @@ class _$_Product implements _Product {
 
   @override
   String toString() {
-    return 'Product(name: $name, code: $code, type: $type, priceHistory: $priceHistory)';
+    return 'Product(name: $name, code: $code, type: $type, amount: $amount, priceHistory: $priceHistory)';
   }
 
   @override
@@ -160,6 +182,7 @@ class _$_Product implements _Product {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality()
                 .equals(other._priceHistory, _priceHistory));
   }
@@ -171,6 +194,7 @@ class _$_Product implements _Product {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(code),
       const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(_priceHistory));
 
   @JsonKey(ignore: true)
@@ -191,6 +215,7 @@ abstract class _Product implements Product {
       {required final String name,
       required final String code,
       required final String type,
+      required final double amount,
       required final List<PriceHistory> priceHistory}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
@@ -201,6 +226,8 @@ abstract class _Product implements Product {
   String get code;
   @override
   String get type;
+  @override
+  double get amount;
   @override
   List<PriceHistory> get priceHistory;
   @override

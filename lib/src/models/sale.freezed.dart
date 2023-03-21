@@ -23,6 +23,7 @@ mixin _$Sale {
   String get id => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   double get total => throw _privateConstructorUsedError;
+  List<Product>? get products => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ mixin _$Sale {
 abstract class $SaleCopyWith<$Res> {
   factory $SaleCopyWith(Sale value, $Res Function(Sale) then) =
       _$SaleCopyWithImpl<$Res>;
-  $Res call({String id, DateTime date, double total});
+  $Res call({String id, DateTime date, double total, List<Product>? products});
 }
 
 /// @nodoc
@@ -49,6 +50,7 @@ class _$SaleCopyWithImpl<$Res> implements $SaleCopyWith<$Res> {
     Object? id = freezed,
     Object? date = freezed,
     Object? total = freezed,
+    Object? products = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -63,6 +65,10 @@ class _$SaleCopyWithImpl<$Res> implements $SaleCopyWith<$Res> {
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
+      products: products == freezed
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>?,
     ));
   }
 }
@@ -72,7 +78,7 @@ abstract class _$$_SaleCopyWith<$Res> implements $SaleCopyWith<$Res> {
   factory _$$_SaleCopyWith(_$_Sale value, $Res Function(_$_Sale) then) =
       __$$_SaleCopyWithImpl<$Res>;
   @override
-  $Res call({String id, DateTime date, double total});
+  $Res call({String id, DateTime date, double total, List<Product>? products});
 }
 
 /// @nodoc
@@ -89,6 +95,7 @@ class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res>
     Object? id = freezed,
     Object? date = freezed,
     Object? total = freezed,
+    Object? products = freezed,
   }) {
     return _then(_$_Sale(
       id: id == freezed
@@ -103,6 +110,10 @@ class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
+      products: products == freezed
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<Product>?,
     ));
   }
 }
@@ -110,7 +121,12 @@ class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Sale implements _Sale {
-  _$_Sale({required this.id, required this.date, required this.total});
+  _$_Sale(
+      {required this.id,
+      required this.date,
+      required this.total,
+      final List<Product>? products})
+      : _products = products;
 
   factory _$_Sale.fromJson(Map<String, dynamic> json) => _$$_SaleFromJson(json);
 
@@ -120,10 +136,18 @@ class _$_Sale implements _Sale {
   final DateTime date;
   @override
   final double total;
+  final List<Product>? _products;
+  @override
+  List<Product>? get products {
+    final value = _products;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'Sale(id: $id, date: $date, total: $total)';
+    return 'Sale(id: $id, date: $date, total: $total, products: $products)';
   }
 
   @override
@@ -133,7 +157,8 @@ class _$_Sale implements _Sale {
             other is _$_Sale &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.total, total));
+            const DeepCollectionEquality().equals(other.total, total) &&
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @JsonKey(ignore: true)
@@ -142,7 +167,8 @@ class _$_Sale implements _Sale {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(total));
+      const DeepCollectionEquality().hash(total),
+      const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
   @override
@@ -161,7 +187,8 @@ abstract class _Sale implements Sale {
   factory _Sale(
       {required final String id,
       required final DateTime date,
-      required final double total}) = _$_Sale;
+      required final double total,
+      final List<Product>? products}) = _$_Sale;
 
   factory _Sale.fromJson(Map<String, dynamic> json) = _$_Sale.fromJson;
 
@@ -171,6 +198,8 @@ abstract class _Sale implements Sale {
   DateTime get date;
   @override
   double get total;
+  @override
+  List<Product>? get products;
   @override
   @JsonKey(ignore: true)
   _$$_SaleCopyWith<_$_Sale> get copyWith => throw _privateConstructorUsedError;

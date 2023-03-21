@@ -10,6 +10,7 @@ class Product with _$Product {
     required String name,
     required String code,
     required String type,
+    required double amount,
     required List<PriceHistory> priceHistory,
   }) = _Product;
 
