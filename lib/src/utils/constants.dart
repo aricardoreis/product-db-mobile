@@ -1,1 +1,1 @@
-const String apiUrl = 'http://rolimreis.duckdns.org:8080';
+const String apiUrl = 'https://rolimreis.com';
