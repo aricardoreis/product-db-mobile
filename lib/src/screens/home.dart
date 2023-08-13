@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +14,17 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this, initialIndex: 0);
+    _tabController.addListener(_switchTabIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -24,37 +35,40 @@ class _HomePageState extends State<HomePage> {
           title: const Text('Product DB'),
         ),
         bottomNavigationBar: renderNavigationBar(),
-        body: const TabBarView(
-          children: [
+        body: TabBarView(
+          controller: _tabController,
+          children: const [
             ProductPage(),
             SalePage(),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            String url = await FlutterBarcodeScanner.scanBarcode(
-                '#000080', 'Cancel', false, ScanMode.QR);
+        floatingActionButton: _tabController.index == 0
+            ? FloatingActionButton(
+                onPressed: () async {
+                  String url = await FlutterBarcodeScanner.scanBarcode(
+                      '#000080', 'Cancel', false, ScanMode.QR);
 
-            if (url.startsWith('http')) {
-              if (mounted) {
-                context.read<HomeCubit>().loadInvoice(url);
-              }
-            }
-          },
-          tooltip: 'Add',
-          child: const Icon(Icons.add),
-        ),
+                  if (url.startsWith('http')) {
+                    if (mounted) {
+                      context.read<HomeCubit>().loadInvoice(url);
+                    }
+                  }
+                },
+                tooltip: 'Add',
+                child: const Icon(Icons.add),
+              )
+            : Container(),
       ),
-      //const HomePage(title: 'Product DB'),
     );
   }
 
   Widget renderNavigationBar() {
     return Container(
       color: Colors.purple,
-      child: const TabBar(
+      child: TabBar(
+        controller: _tabController,
         indicatorSize: TabBarIndicatorSize.tab,
-        tabs: [
+        tabs: const [
           Tab(
             text: 'Products',
             icon: Icon(Icons.shopping_bag),
@@ -66,5 +80,10 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  void _switchTabIndex() {
+    print(_tabController.index);
+    setState(() {});
   }
 }
