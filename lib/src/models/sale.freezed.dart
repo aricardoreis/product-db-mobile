@@ -23,7 +23,7 @@ mixin _$Sale {
   String get id => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   double get total => throw _privateConstructorUsedError;
-  List<Product>? get products => throw _privateConstructorUsedError;
+  List<SaleProduct>? get products => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,8 @@ abstract class $SaleCopyWith<$Res> {
   factory $SaleCopyWith(Sale value, $Res Function(Sale) then) =
       _$SaleCopyWithImpl<$Res, Sale>;
   @useResult
-  $Res call({String id, DateTime date, double total, List<Product>? products});
+  $Res call(
+      {String id, DateTime date, double total, List<SaleProduct>? products});
 }
 
 /// @nodoc
@@ -72,7 +73,7 @@ class _$SaleCopyWithImpl<$Res, $Val extends Sale>
       products: freezed == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
+              as List<SaleProduct>?,
     ) as $Val);
   }
 }
@@ -83,7 +84,8 @@ abstract class _$$_SaleCopyWith<$Res> implements $SaleCopyWith<$Res> {
       __$$_SaleCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, DateTime date, double total, List<Product>? products});
+  $Res call(
+      {String id, DateTime date, double total, List<SaleProduct>? products});
 }
 
 /// @nodoc
@@ -116,7 +118,7 @@ class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res, _$_Sale>
       products: freezed == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<Product>?,
+              as List<SaleProduct>?,
     ));
   }
 }
@@ -128,7 +130,7 @@ class _$_Sale implements _Sale {
       {required this.id,
       required this.date,
       required this.total,
-      final List<Product>? products})
+      final List<SaleProduct>? products})
       : _products = products;
 
   factory _$_Sale.fromJson(Map<String, dynamic> json) => _$$_SaleFromJson(json);
@@ -139,9 +141,9 @@ class _$_Sale implements _Sale {
   final DateTime date;
   @override
   final double total;
-  final List<Product>? _products;
+  final List<SaleProduct>? _products;
   @override
-  List<Product>? get products {
+  List<SaleProduct>? get products {
     final value = _products;
     if (value == null) return null;
     if (_products is EqualUnmodifiableListView) return _products;
@@ -189,7 +191,7 @@ abstract class _Sale implements Sale {
       {required final String id,
       required final DateTime date,
       required final double total,
-      final List<Product>? products}) = _$_Sale;
+      final List<SaleProduct>? products}) = _$_Sale;
 
   factory _Sale.fromJson(Map<String, dynamic> json) = _$_Sale.fromJson;
 
@@ -200,7 +202,7 @@ abstract class _Sale implements Sale {
   @override
   double get total;
   @override
-  List<Product>? get products;
+  List<SaleProduct>? get products;
   @override
   @JsonKey(ignore: true)
   _$$_SaleCopyWith<_$_Sale> get copyWith => throw _privateConstructorUsedError;

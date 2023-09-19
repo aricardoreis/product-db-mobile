@@ -72,7 +72,7 @@ class _SaleDetailsState extends State<SaleDetails> {
                     Expanded(
                       flex: 2,
                       child: Text(
-                        formatAsCurrency(e.priceHistory.first.value),
+                        formatAsCurrency(e.value),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

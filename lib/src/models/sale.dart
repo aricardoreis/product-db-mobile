@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'product.dart';
+import 'sale_product.dart';
 
 part 'sale.freezed.dart';
 part 'sale.g.dart';
@@ -11,7 +11,7 @@ class Sale with _$Sale {
     required String id,
     required DateTime date,
     required double total,
-    List<Product>? products,
+    List<SaleProduct>? products,
   }) = _Sale;
 
   factory Sale.fromJson(Map<String, dynamic> json) => _$SaleFromJson(json);

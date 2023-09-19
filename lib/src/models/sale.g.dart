@@ -11,7 +11,7 @@ _$_Sale _$$_SaleFromJson(Map<String, dynamic> json) => _$_Sale(
       date: DateTime.parse(json['date'] as String),
       total: (json['total'] as num).toDouble(),
       products: (json['products'] as List<dynamic>?)
-          ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SaleProduct.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
