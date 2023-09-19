@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'price_history.dart';
 
@@ -33,33 +33,37 @@ mixin _$PriceHistory {
 abstract class $PriceHistoryCopyWith<$Res> {
   factory $PriceHistoryCopyWith(
           PriceHistory value, $Res Function(PriceHistory) then) =
-      _$PriceHistoryCopyWithImpl<$Res>;
+      _$PriceHistoryCopyWithImpl<$Res, PriceHistory>;
+  @useResult
   $Res call({DateTime date, double value});
 }
 
 /// @nodoc
-class _$PriceHistoryCopyWithImpl<$Res> implements $PriceHistoryCopyWith<$Res> {
+class _$PriceHistoryCopyWithImpl<$Res, $Val extends PriceHistory>
+    implements $PriceHistoryCopyWith<$Res> {
   _$PriceHistoryCopyWithImpl(this._value, this._then);
 
-  final PriceHistory _value;
   // ignore: unused_field
-  final $Res Function(PriceHistory) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
-    Object? value = freezed,
+    Object? date = null,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,31 +74,30 @@ abstract class _$$_PriceHistoryCopyWith<$Res>
           _$_PriceHistory value, $Res Function(_$_PriceHistory) then) =
       __$$_PriceHistoryCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({DateTime date, double value});
 }
 
 /// @nodoc
 class __$$_PriceHistoryCopyWithImpl<$Res>
-    extends _$PriceHistoryCopyWithImpl<$Res>
+    extends _$PriceHistoryCopyWithImpl<$Res, _$_PriceHistory>
     implements _$$_PriceHistoryCopyWith<$Res> {
   __$$_PriceHistoryCopyWithImpl(
       _$_PriceHistory _value, $Res Function(_$_PriceHistory) _then)
-      : super(_value, (v) => _then(v as _$_PriceHistory));
+      : super(_value, _then);
 
-  @override
-  _$_PriceHistory get _value => super._value as _$_PriceHistory;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = freezed,
-    Object? value = freezed,
+    Object? date = null,
+    Object? value = null,
   }) {
     return _then(_$_PriceHistory(
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as double,
@@ -125,19 +128,17 @@ class _$_PriceHistory implements _PriceHistory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PriceHistory &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.value, value));
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, date, value);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PriceHistoryCopyWith<_$_PriceHistory> get copyWith =>
       __$$_PriceHistoryCopyWithImpl<_$_PriceHistory>(this, _$identity);
 

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'api_response.dart';
 
@@ -33,33 +33,37 @@ mixin _$ApiResponse {
 abstract class $ApiResponseCopyWith<$Res> {
   factory $ApiResponseCopyWith(
           ApiResponse value, $Res Function(ApiResponse) then) =
-      _$ApiResponseCopyWithImpl<$Res>;
+      _$ApiResponseCopyWithImpl<$Res, ApiResponse>;
+  @useResult
   $Res call({bool success, dynamic result});
 }
 
 /// @nodoc
-class _$ApiResponseCopyWithImpl<$Res> implements $ApiResponseCopyWith<$Res> {
+class _$ApiResponseCopyWithImpl<$Res, $Val extends ApiResponse>
+    implements $ApiResponseCopyWith<$Res> {
   _$ApiResponseCopyWithImpl(this._value, this._then);
 
-  final ApiResponse _value;
   // ignore: unused_field
-  final $Res Function(ApiResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = freezed,
+    Object? success = null,
     Object? result = freezed,
   }) {
     return _then(_value.copyWith(
-      success: success == freezed
+      success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
-      result: result == freezed
+      result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as dynamic,
-    ));
+    ) as $Val);
   }
 }
 
@@ -70,30 +74,30 @@ abstract class _$$_ApiResponseCopyWith<$Res>
           _$_ApiResponse value, $Res Function(_$_ApiResponse) then) =
       __$$_ApiResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool success, dynamic result});
 }
 
 /// @nodoc
-class __$$_ApiResponseCopyWithImpl<$Res> extends _$ApiResponseCopyWithImpl<$Res>
+class __$$_ApiResponseCopyWithImpl<$Res>
+    extends _$ApiResponseCopyWithImpl<$Res, _$_ApiResponse>
     implements _$$_ApiResponseCopyWith<$Res> {
   __$$_ApiResponseCopyWithImpl(
       _$_ApiResponse _value, $Res Function(_$_ApiResponse) _then)
-      : super(_value, (v) => _then(v as _$_ApiResponse));
+      : super(_value, _then);
 
-  @override
-  _$_ApiResponse get _value => super._value as _$_ApiResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = freezed,
+    Object? success = null,
     Object? result = freezed,
   }) {
     return _then(_$_ApiResponse(
-      success: success == freezed
+      success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
-      result: result == freezed
+      result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -124,19 +128,18 @@ class _$_ApiResponse implements _ApiResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ApiResponse &&
-            const DeepCollectionEquality().equals(other.success, success) &&
+            (identical(other.success, success) || other.success == success) &&
             const DeepCollectionEquality().equals(other.result, result));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(success),
-      const DeepCollectionEquality().hash(result));
+      runtimeType, success, const DeepCollectionEquality().hash(result));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ApiResponseCopyWith<_$_ApiResponse> get copyWith =>
       __$$_ApiResponseCopyWithImpl<_$_ApiResponse>(this, _$identity);
 

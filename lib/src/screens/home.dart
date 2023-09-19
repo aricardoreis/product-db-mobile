@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,7 +82,6 @@ class _HomePageState extends State<HomePage>
   }
 
   void _switchTabIndex() {
-    print(_tabController.index);
     setState(() {});
   }
 }

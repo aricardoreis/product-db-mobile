@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'product_response.dart';
 
@@ -33,34 +33,37 @@ mixin _$ProductsResponse {
 abstract class $ProductsResponseCopyWith<$Res> {
   factory $ProductsResponseCopyWith(
           ProductsResponse value, $Res Function(ProductsResponse) then) =
-      _$ProductsResponseCopyWithImpl<$Res>;
+      _$ProductsResponseCopyWithImpl<$Res, ProductsResponse>;
+  @useResult
   $Res call({bool success, List<Product> result});
 }
 
 /// @nodoc
-class _$ProductsResponseCopyWithImpl<$Res>
+class _$ProductsResponseCopyWithImpl<$Res, $Val extends ProductsResponse>
     implements $ProductsResponseCopyWith<$Res> {
   _$ProductsResponseCopyWithImpl(this._value, this._then);
 
-  final ProductsResponse _value;
   // ignore: unused_field
-  final $Res Function(ProductsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = freezed,
-    Object? result = freezed,
+    Object? success = null,
+    Object? result = null,
   }) {
     return _then(_value.copyWith(
-      success: success == freezed
+      success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as List<Product>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -71,31 +74,30 @@ abstract class _$$_ProductsResponseCopyWith<$Res>
           _$_ProductsResponse value, $Res Function(_$_ProductsResponse) then) =
       __$$_ProductsResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool success, List<Product> result});
 }
 
 /// @nodoc
 class __$$_ProductsResponseCopyWithImpl<$Res>
-    extends _$ProductsResponseCopyWithImpl<$Res>
+    extends _$ProductsResponseCopyWithImpl<$Res, _$_ProductsResponse>
     implements _$$_ProductsResponseCopyWith<$Res> {
   __$$_ProductsResponseCopyWithImpl(
       _$_ProductsResponse _value, $Res Function(_$_ProductsResponse) _then)
-      : super(_value, (v) => _then(v as _$_ProductsResponse));
+      : super(_value, _then);
 
-  @override
-  _$_ProductsResponse get _value => super._value as _$_ProductsResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = freezed,
-    Object? result = freezed,
+    Object? success = null,
+    Object? result = null,
   }) {
     return _then(_$_ProductsResponse(
-      success: success == freezed
+      success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
-      result: result == freezed
+      result: null == result
           ? _value._result
           : result // ignore: cast_nullable_to_non_nullable
               as List<Product>,
@@ -118,6 +120,7 @@ class _$_ProductsResponse implements _ProductsResponse {
   final List<Product> _result;
   @override
   List<Product> get result {
+    if (_result is EqualUnmodifiableListView) return _result;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_result);
   }
@@ -132,19 +135,18 @@ class _$_ProductsResponse implements _ProductsResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProductsResponse &&
-            const DeepCollectionEquality().equals(other.success, success) &&
+            (identical(other.success, success) || other.success == success) &&
             const DeepCollectionEquality().equals(other._result, _result));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(success),
-      const DeepCollectionEquality().hash(_result));
+      runtimeType, success, const DeepCollectionEquality().hash(_result));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ProductsResponseCopyWith<_$_ProductsResponse> get copyWith =>
       __$$_ProductsResponseCopyWithImpl<_$_ProductsResponse>(this, _$identity);
 

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sale_details_response.dart';
 
@@ -33,42 +33,46 @@ mixin _$SaleDetailsResponse {
 abstract class $SaleDetailsResponseCopyWith<$Res> {
   factory $SaleDetailsResponseCopyWith(
           SaleDetailsResponse value, $Res Function(SaleDetailsResponse) then) =
-      _$SaleDetailsResponseCopyWithImpl<$Res>;
+      _$SaleDetailsResponseCopyWithImpl<$Res, SaleDetailsResponse>;
+  @useResult
   $Res call({bool success, Sale result});
 
   $SaleCopyWith<$Res> get result;
 }
 
 /// @nodoc
-class _$SaleDetailsResponseCopyWithImpl<$Res>
+class _$SaleDetailsResponseCopyWithImpl<$Res, $Val extends SaleDetailsResponse>
     implements $SaleDetailsResponseCopyWith<$Res> {
   _$SaleDetailsResponseCopyWithImpl(this._value, this._then);
 
-  final SaleDetailsResponse _value;
   // ignore: unused_field
-  final $Res Function(SaleDetailsResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = freezed,
-    Object? result = freezed,
+    Object? success = null,
+    Object? result = null,
   }) {
     return _then(_value.copyWith(
-      success: success == freezed
+      success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as Sale,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SaleCopyWith<$Res> get result {
     return $SaleCopyWith<$Res>(_value.result, (value) {
-      return _then(_value.copyWith(result: value));
+      return _then(_value.copyWith(result: value) as $Val);
     });
   }
 }
@@ -80,6 +84,7 @@ abstract class _$$_SaleDetailsResponseCopyWith<$Res>
           $Res Function(_$_SaleDetailsResponse) then) =
       __$$_SaleDetailsResponseCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({bool success, Sale result});
 
   @override
@@ -88,26 +93,24 @@ abstract class _$$_SaleDetailsResponseCopyWith<$Res>
 
 /// @nodoc
 class __$$_SaleDetailsResponseCopyWithImpl<$Res>
-    extends _$SaleDetailsResponseCopyWithImpl<$Res>
+    extends _$SaleDetailsResponseCopyWithImpl<$Res, _$_SaleDetailsResponse>
     implements _$$_SaleDetailsResponseCopyWith<$Res> {
   __$$_SaleDetailsResponseCopyWithImpl(_$_SaleDetailsResponse _value,
       $Res Function(_$_SaleDetailsResponse) _then)
-      : super(_value, (v) => _then(v as _$_SaleDetailsResponse));
+      : super(_value, _then);
 
-  @override
-  _$_SaleDetailsResponse get _value => super._value as _$_SaleDetailsResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = freezed,
-    Object? result = freezed,
+    Object? success = null,
+    Object? result = null,
   }) {
     return _then(_$_SaleDetailsResponse(
-      success: success == freezed
+      success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as bool,
-      result: result == freezed
+      result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as Sale,
@@ -138,19 +141,17 @@ class _$_SaleDetailsResponse implements _SaleDetailsResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SaleDetailsResponse &&
-            const DeepCollectionEquality().equals(other.success, success) &&
-            const DeepCollectionEquality().equals(other.result, result));
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.result, result) || other.result == result));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(success),
-      const DeepCollectionEquality().hash(result));
+  int get hashCode => Object.hash(runtimeType, success, result);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SaleDetailsResponseCopyWith<_$_SaleDetailsResponse> get copyWith =>
       __$$_SaleDetailsResponseCopyWithImpl<_$_SaleDetailsResponse>(
           this, _$identity);

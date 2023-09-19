@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sale.dart';
 
@@ -33,43 +33,47 @@ mixin _$Sale {
 /// @nodoc
 abstract class $SaleCopyWith<$Res> {
   factory $SaleCopyWith(Sale value, $Res Function(Sale) then) =
-      _$SaleCopyWithImpl<$Res>;
+      _$SaleCopyWithImpl<$Res, Sale>;
+  @useResult
   $Res call({String id, DateTime date, double total, List<Product>? products});
 }
 
 /// @nodoc
-class _$SaleCopyWithImpl<$Res> implements $SaleCopyWith<$Res> {
+class _$SaleCopyWithImpl<$Res, $Val extends Sale>
+    implements $SaleCopyWith<$Res> {
   _$SaleCopyWithImpl(this._value, this._then);
 
-  final Sale _value;
   // ignore: unused_field
-  final $Res Function(Sale) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? date = freezed,
-    Object? total = freezed,
+    Object? id = null,
+    Object? date = null,
+    Object? total = null,
     Object? products = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      total: total == freezed
+      total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      products: products == freezed
+      products: freezed == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -78,39 +82,38 @@ abstract class _$$_SaleCopyWith<$Res> implements $SaleCopyWith<$Res> {
   factory _$$_SaleCopyWith(_$_Sale value, $Res Function(_$_Sale) then) =
       __$$_SaleCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, DateTime date, double total, List<Product>? products});
 }
 
 /// @nodoc
-class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res>
+class __$$_SaleCopyWithImpl<$Res> extends _$SaleCopyWithImpl<$Res, _$_Sale>
     implements _$$_SaleCopyWith<$Res> {
   __$$_SaleCopyWithImpl(_$_Sale _value, $Res Function(_$_Sale) _then)
-      : super(_value, (v) => _then(v as _$_Sale));
+      : super(_value, _then);
 
-  @override
-  _$_Sale get _value => super._value as _$_Sale;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? date = freezed,
-    Object? total = freezed,
+    Object? id = null,
+    Object? date = null,
+    Object? total = null,
     Object? products = freezed,
   }) {
     return _then(_$_Sale(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      total: total == freezed
+      total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      products: products == freezed
+      products: freezed == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
               as List<Product>?,
@@ -141,6 +144,7 @@ class _$_Sale implements _Sale {
   List<Product>? get products {
     final value = _products;
     if (value == null) return null;
+    if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -155,23 +159,20 @@ class _$_Sale implements _Sale {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Sale &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.total, total) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.total, total) || other.total == total) &&
             const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(total),
+  int get hashCode => Object.hash(runtimeType, id, date, total,
       const DeepCollectionEquality().hash(_products));
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SaleCopyWith<_$_Sale> get copyWith =>
       __$$_SaleCopyWithImpl<_$_Sale>(this, _$identity);
 
